@@ -4,6 +4,7 @@ import { getProvider, getSigner, startGame, shuffle, endGame, getCard  } from '.
 
 dotenv.config();
 
+
 const provider = getProvider(process.env.RPC_URL!);  
 const signer = getSigner(process.env.OP_PRIVATE_KEY!, provider);
 const wss = new WebSocket.Server({ port: 8080 });
@@ -32,7 +33,7 @@ wss.on('connection', (ws: WebSocket) => {
 
         else if (flag == 'shuffle') {
             // card shuffle move call
-            const result = shuffle()
+            const result = shuffle(signer)
             // return flag: 'shuffle done'
         }
 

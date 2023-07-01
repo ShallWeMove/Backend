@@ -10,6 +10,7 @@ import {
     TransactionArgument
 } from "@mysten/sui.js";
 import dotenv from "dotenv";
+import { decrypt } from './encrypt';
 // import { updateGasPrice, nextReferenceGasPrice, getCurrentGasPrice } from "./tokenomics";
 // import { Validator } from "./types";
   
@@ -60,8 +61,16 @@ export const startGame = async(signer: RawSigner) => {
     // return result
 }
 
-export const shuffle = async() => {
-    // something shuffle
+export const shuffle = async(signer: RawSigner) => {
+    // // shuffle cards
+    // let array = await moveCall('0x::blackjack::get_cards', signer, [a, b], TransactionArgument[]);
+
+    // for (let i = array.length - 1; i > 0; i--) {
+    //     const j = Math.floor(Math.random() * (i + 1));
+    //     [array[i], array[j]] = [array[j], array[i]]; // array element swapping
+    // }
+
+    // await moveCall('0xb::blackjack::shuffle(), signer, [a, b], TransactionArgument[])
 
     // return "done"
 }
@@ -69,13 +78,13 @@ export const shuffle = async() => {
 export const getCard = async(signer: RawSigner, ishidden: boolean) => {
     if(ishidden) {
         // const result = await moveCall('0x::blackjack::get_card', signer, ['a', 'b'], TransactionArgument[])
-
+        
         // return result
     }
     else {
         // const result = await moveCall('0x::blackjack::get_card', signer, ['a', 'b'], TransactionArgument[])
-
-        // return result
+        // const num = decrypt(result)
+        // return num
     }
 }
 

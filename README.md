@@ -9,7 +9,7 @@
 start_game 이라는 Move Function 을 Call 하고, 종료되면, 프론트로 끝났다는 flag 를 전달해 주어야 함. flag 는 'game start done' 으로 함.
 ### shuffle
 Card를 섞는 행위를 해야하며, 종료되면, 프론트로 끝났다는 flag를 전달해 주어야 함. flag는 'shuffle done' 으로 함.
-아직까지 어떻게 구현해야겠다 라고 확정을 못지은 상태이고, 아직까지 제대로 이해를 한 상태도 아니라서 태원님과 이야기를 해보고 난 후 개발을 해야할 듯
+백엔드에서 단순히 카드 숫자를 섞는 간단한 알고리즘을 만들어서 shuffle 을 진행한 후, moveCall 로 실제로 셔플된 카드로 만드는 것으로 함.
 ### card open
 게임이 실행되는 첫번째 부분으로, player 1장, dealer 1장, player 1장, dealer 1장 카드를 받는 행위를 해야 함.
 1장씩 카드를 받을때 마다 get_card 라는 Move Function 을 Call 하고, 종료되면, 프론트로 끝났다는 flag와 함께 뽑은 카드를 전달해 주어야 함. flag 는 'playerFirst done', 'dealerFirst done', 'playerSecond done', 'dealerSecond done' 으로 함.
@@ -28,5 +28,5 @@ player가 더이상 카드를 받지 않는다는 의미임. end_game 이라는 
 즉, Move Call이 완성 되어서 argument 와 같이 Move Call 을 하는데 필요한 값들이 정해지면, 함수 인자로 넘겨주면 되는 상태임.
 
 # 향후 계획
-shuffle 부분과 Stop 부분을 태원님과 얘기해서 정해야 하고,
+Stop 부분을 태원님께 전달받아서 개블알 해야하고,
 프론트로 보내주는 데이터의 형식을 어떻게 할지 정해서 프론트로 넘겨주는 코드를 작성해야 함.(Move 개발이 완료 되고, object 에 대한 정보과 완전해지면 쉽게 할 수 있을 듯)
