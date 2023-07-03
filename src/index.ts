@@ -1,13 +1,17 @@
 import WebSocket from 'ws';
 import dotenv from "dotenv";
-import { getProvider, getSigner, startGame, shuffle, endGame, getCard  } from './moveCall';
+import { getProvider, getSigner, startGame, shuffle, endGame, getCard, test  } from './moveCall';
+import { encrypt, decrypt } from './encrypt';
 
 dotenv.config();
 
+const resultt = encrypt(12342);
+console.log(resultt)
 
 const provider = getProvider(process.env.RPC_URL!);  
-const signer = getSigner(process.env.OP_PRIVATE_KEY!, provider);
+const signer = getSigner(process.env.PRIVATE_KEY!, provider);
 const wss = new WebSocket.Server({ port: 8080 });
+
 
 wss.on('connection', (ws: WebSocket) => {
     console.log('Client connected.');

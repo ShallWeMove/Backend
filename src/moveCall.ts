@@ -11,8 +11,6 @@ import {
 } from "@mysten/sui.js";
 import dotenv from "dotenv";
 import { decrypt } from './encrypt';
-// import { updateGasPrice, nextReferenceGasPrice, getCurrentGasPrice } from "./tokenomics";
-// import { Validator } from "./types";
   
 dotenv.config();
   
@@ -54,6 +52,11 @@ const moveCall = async (target: `${string}::${string}::${string}`, signer: RawSi
     console.log({ result });
     return result;
 };
+
+export const test = async(signer: RawSigner) => {
+    const tx = new TransactionBlock();
+    const result = await moveCall('0x35e843c08f42ad01c503bde02a888314c8400696e6752fa4b88aa10db8c132d5::test::new_game', signer, ["vector<vector<u8>>"], [tx.pure([12, 33])])
+}
 
 export const startGame = async(signer: RawSigner) => {
     // const result = await moveCall('0x::blackjack::start_game', signer, ['a', 'b'], TransactionArgument[])
